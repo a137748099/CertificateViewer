@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GeneralWidget</class>
+ <widget class="QWidget" name="GeneralWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>544</width>
+    <height>645</height>
+   </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>544</width>
+    <height>645</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="usageLabel">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>30</y>
+     <width>491</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>此证书已通过验证，具有以下用法：</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="usageLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>60</y>
+     <width>451</width>
+     <height>27</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="subjectGroupBox">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>110</y>
+     <width>501</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>颁发给</string>
+   </property>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>22</y>
+      <width>81</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>通用名称(CN)</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="subjectCnLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>22</y>
+      <width>361</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>52</y>
+      <width>81</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>组织(O)</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="subjectOrgLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>52</y>
+      <width>361</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>82</y>
+      <width>81</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>组织单位(OU)</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="subjectOuLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>82</y>
+      <width>361</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="issuerGroupBox">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>250</y>
+     <width>501</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>颁发者</string>
+   </property>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>22</y>
+      <width>81</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>通用名称(CN)</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="issuerCnLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>22</y>
+      <width>361</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>52</y>
+      <width>81</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>组织(O)</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="issuerOrgLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>52</y>
+      <width>361</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>82</y>
+      <width>81</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>组织单位(OU)</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="issuerOuLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>82</y>
+      <width>361</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="validDateGroupBox">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>390</y>
+     <width>501</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>有效期</string>
+   </property>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>22</y>
+      <width>81</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>颁发日期</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="notbeforLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>22</y>
+      <width>361</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>52</y>
+      <width>81</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>截止日期</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="notafterLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>52</y>
+      <width>361</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="fpGroupBox">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>500</y>
+     <width>501</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>指纹</string>
+   </property>
+   <widget class="QLabel" name="label_11">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>81</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>SHA-1指纹</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="sha1LineEdit">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>22</y>
+      <width>361</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="sha256LineEdit">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>52</y>
+      <width>361</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="cursorPosition">
+     <number>0</number>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>50</y>
+      <width>81</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>SHA-256指纹</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
