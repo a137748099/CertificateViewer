@@ -12,4 +12,4 @@ The shared library supports Windows and Linux. The tool is based on Qt, so it al
 ![Detail Information](https://github.com/a137748099/CertificateViewer/blob/master/image/effect-2.png)
 
 # License
-[LPGL](https://github.com/a137748099/CertificateViewer/blob/master/LICENSE)
+[LGPL](https://github.com/a137748099/CertificateViewer/blob/master/LICENSE)
