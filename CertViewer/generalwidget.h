@@ -20,6 +20,7 @@ public:
     void setIssuerInfo(const QList<std::string> &infos);
     void setValidPeridInfo(const QList<std::string> &infos);
     void setFpInfo(const QList<std::string> &infos, bool isSM2 = false);
+    void setVerifyStatus(int status);
 
     void clear();
 

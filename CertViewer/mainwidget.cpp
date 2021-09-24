@@ -70,8 +70,8 @@ void MainWidget::initUi()
 
 void MainWidget::resizeEvent(QResizeEvent *event)
 {
-    this->setFixedSize(544, 685);
-    m_pMenuBar->resize(this->width(), 23);
+    this->setFixedSize(544, 705);
+    m_pMenuBar->resize(this->width(), 30);
     m_pTabWidget->setGeometry(0, m_pMenuBar->height(), this->width(), this->height() - m_pMenuBar->height());
 //    m_pTabWidget->resize(this->size());
     QWidget::resizeEvent(event);
@@ -110,17 +110,12 @@ void MainWidget::downloadCertChain(X509Certificate *x509, QList<X509Certificate>
                         auto subKeyID = ext.toString();
                         if(subKeyID == authKeyID) {
                             certList.append(sysCert);
-//                            hasRoot = true;
                             return;
-//                            qDebug() << __FUNCTION__ << "song" << "root cert" << sysCert.toPem();
                         }
                     }
                 }
             }
         }
-//        else {
-//            hasRoot = true;
-//        }
 
         return;
     }
@@ -198,6 +193,11 @@ void MainWidget::onOpenFile()
     downloadCertChain(m_pX509, certList);
     qDebug() << __FUNCTION__ << "song" << certList.size();
     m_pDetailWidget->setCertChain(certList);
+
+    auto certChain = certList.toVector().toStdVector();
+    auto verifyRet = X509Certificate::verify(*m_pX509, certChain);
+    qDebug() << __FUNCTION__ << "verify:" << verifyRet << endl;
+    m_pGeneralWidget->setVerifyStatus(verifyRet);
 }
 
 void MainWidget::onCloseFile()

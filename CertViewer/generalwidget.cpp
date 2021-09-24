@@ -62,6 +62,28 @@ void GeneralWidget::setFpInfo(const QList<std::string> &infos, bool isSM2)
     ui->label_10->setText(isSM2 ? u8"SM3指纹" : u8"SHA-256指纹");
 }
 
+void GeneralWidget::setVerifyStatus(int status)
+{
+    QString verifyText;
+    switch (status) {
+    case 1:
+        verifyText = tr("This certificate has been verified and has the following usage", "此证书已通过验证，具有以下用法");
+        break;
+    case 10:
+        verifyText = tr("This certificate has expired", "此证书已过期");
+        break;
+    case 11:
+        verifyText = tr("This certificate is not valid", "此证书未生效");
+        break;
+    default:
+        verifyText = tr("The identity of the signer is unknown", "签名者身份未知");
+        break;
+    }
+
+    ui->usageLabel->setText(verifyText);
+    ui->usageLabel->setStyleSheet(QString("color:%1").arg(status == 1 ? "black" : "red"));
+}
+
 void GeneralWidget::clear()
 {
     ui->usageLineEdit->clear();
