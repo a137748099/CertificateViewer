@@ -18,6 +18,8 @@ public:
     MainWidget(QWidget *parent = nullptr);
     ~MainWidget();
 
+    void openFile(const QString &filePaht);
+
 protected:
     void initUi();
     void resizeEvent(QResizeEvent *event) override;

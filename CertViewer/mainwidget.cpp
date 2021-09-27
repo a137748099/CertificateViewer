@@ -9,6 +9,8 @@
 #include <QFileDialog>
 #include <QMessageBox>
 
+#define Ver "V1.0.0.0"
+
 MainWidget::MainWidget(QWidget *parent)
     : QWidget(parent)
 {
@@ -20,9 +22,53 @@ MainWidget::~MainWidget()
     delete m_pGetManager;
 }
 
+void MainWidget::openFile(const QString &filePaht)
+{
+    if(m_pX509) {
+        delete m_pX509;
+    }
+    m_pX509 = new X509Certificate(filePaht.toStdString().c_str(), 0);
+    list<string> subjectInfos = {m_pX509->subjectDisplyName(),
+                                 m_pX509->subjectInfo(X509Certificate::Organization),
+                                 m_pX509->subjectInfo(X509Certificate::OrganizationalUnitName)};
+    m_pGeneralWidget->setSubjectInfo(QList<string>::fromStdList(subjectInfos));
+
+    list<string> issuerInfos = {m_pX509->issuerDisplyName(),
+                               m_pX509->issuerInfo(X509Certificate::Organization),
+                               m_pX509->issuerInfo(X509Certificate::OrganizationalUnitName)};
+    m_pGeneralWidget->setIssuerInfo(QList<string>::fromStdList(issuerInfos));
+
+    list<string> validExpirList = {m_pX509->notBefor(), m_pX509->notAfter()};
+    m_pGeneralWidget->setValidPeridInfo(QList<string>::fromStdList(validExpirList));
+
+    auto sigAlg = m_pX509->signAlgType();
+    bool sm3WithSm2 = sigAlg == "SM3WithSM2Encryption";
+    list<string> fpList = {m_pX509->digest(X509Certificate::Hash_Sha1),
+                           sm3WithSm2 ? m_pX509->digest(X509Certificate::Hash_SM3) : m_pX509->digest(X509Certificate::Hash_Sha256)};
+    m_pGeneralWidget->setFpInfo(QList<string>::fromStdList(fpList), sm3WithSm2);
+
+    auto exts = m_pX509->extensions();
+    foreach (auto ext, exts) {
+        if(ext.oid() == "2.5.29.37") {
+            m_pGeneralWidget->setExtusage(ext.value());
+        }
+    }
+
+    QList<X509Certificate> certList;
+    downloadCertChain(m_pX509, certList);
+    qDebug() << __FUNCTION__ << "song" << certList.size();
+    m_pDetailWidget->setCertChain(certList);
+
+    auto certChain = certList.toVector().toStdVector();
+    auto verifyRet = X509Certificate::verify(*m_pX509, certChain);
+    qDebug() << __FUNCTION__ << "verify:" << verifyRet << endl;
+    m_pGeneralWidget->setVerifyStatus(verifyRet);
+}
+
 void MainWidget::initUi()
 {
     this->setWindowTitle(tr("Certificate Viewer"));
+    this->setWindowIcon(QIcon(":/icon/icon.png"));
 
     m_pMenuBar = new QMenuBar(this);
     auto fileMenu = m_pMenuBar->addMenu(tr("&File"));
@@ -48,7 +94,7 @@ void MainWidget::initUi()
 
     auto aboutAct = helpMenu->addAction(tr("&About"));
     connect(aboutAct, &QAction::triggered, this, [=]{
-        QMessageBox::about(this, tr("About"), tr("Certificate Viewer V1.0.0.0"));
+        QMessageBox::about(this, tr("About"), tr("Certificate Viewer \n     %1").arg(Ver));
     });
 
     m_pTabWidget = new QTabWidget(this);
@@ -159,45 +205,7 @@ void MainWidget::onOpenFile()
         return;
     }
 
-    if(m_pX509) {
-        delete m_pX509;
-    }
-    m_pX509 = new X509Certificate(fileName.toStdString().c_str(), 0);
-    list<string> subjectInfos = {m_pX509->subjectDisplyName(),
-                                 m_pX509->subjectInfo(X509Certificate::Organization),
-                                 m_pX509->subjectInfo(X509Certificate::OrganizationalUnitName)};
-    m_pGeneralWidget->setSubjectInfo(QList<string>::fromStdList(subjectInfos));
-
-    list<string> issuerInfos = {m_pX509->issuerDisplyName(),
-                               m_pX509->issuerInfo(X509Certificate::Organization),
-                               m_pX509->issuerInfo(X509Certificate::OrganizationalUnitName)};
-    m_pGeneralWidget->setIssuerInfo(QList<string>::fromStdList(issuerInfos));
-
-    list<string> validExpirList = {m_pX509->notBefor(), m_pX509->notAfter()};
-    m_pGeneralWidget->setValidPeridInfo(QList<string>::fromStdList(validExpirList));
-
-    auto sigAlg = m_pX509->signAlgType();
-    bool sm3WithSm2 = sigAlg == "SM3WithSM2Encryption";
-    list<string> fpList = {m_pX509->digest(X509Certificate::Hash_Sha1),
-                           sm3WithSm2 ? m_pX509->digest(X509Certificate::Hash_SM3) : m_pX509->digest(X509Certificate::Hash_Sha256)};
-    m_pGeneralWidget->setFpInfo(QList<string>::fromStdList(fpList), sm3WithSm2);
-
-    auto exts = m_pX509->extensions();
-    foreach (auto ext, exts) {
-        if(ext.oid() == "2.5.29.37") {
-            m_pGeneralWidget->setExtusage(ext.value());
-        }
-    }
-
-    QList<X509Certificate> certList;
-    downloadCertChain(m_pX509, certList);
-    qDebug() << __FUNCTION__ << "song" << certList.size();
-    m_pDetailWidget->setCertChain(certList);
-
-    auto certChain = certList.toVector().toStdVector();
-    auto verifyRet = X509Certificate::verify(*m_pX509, certChain);
-    qDebug() << __FUNCTION__ << "verify:" << verifyRet << endl;
-    m_pGeneralWidget->setVerifyStatus(verifyRet);
+    openFile(fileName);
 }
 
 void MainWidget::onCloseFile()

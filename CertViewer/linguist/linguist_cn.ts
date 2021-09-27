@@ -250,7 +250,7 @@
         <translation>签名者身份未知</translation>
     </message>
     <message>
-        <location filename="../generalwidget.cpp" line="137"/>
+        <location filename="../generalwidget.cpp" line="138"/>
         <source>&lt;Not included in the certificate&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -258,76 +258,88 @@
 <context>
     <name>MainWidget</name>
     <message>
-        <location filename="../mainwidget.cpp" line="25"/>
+        <location filename="../mainwidget.cpp" line="27"/>
         <source>Certificate Viewer</source>
         <translation>证书查看器</translation>
     </message>
     <message>
-        <location filename="../mainwidget.cpp" line="28"/>
+        <location filename="../mainwidget.cpp" line="31"/>
         <source>&amp;File</source>
         <translation>&amp;文件</translation>
     </message>
     <message>
-        <location filename="../mainwidget.cpp" line="29"/>
+        <location filename="../mainwidget.cpp" line="32"/>
         <source>&amp;Help</source>
         <translation>&amp;帮助</translation>
     </message>
     <message>
-        <location filename="../mainwidget.cpp" line="31"/>
+        <location filename="../mainwidget.cpp" line="34"/>
         <source>&amp;Open</source>
         <translation>&amp;打开</translation>
     </message>
     <message>
-        <location filename="../mainwidget.cpp" line="36"/>
+        <location filename="../mainwidget.cpp" line="39"/>
         <source>&amp;Close</source>
         <translation>&amp;关闭</translation>
     </message>
     <message>
-        <location filename="../mainwidget.cpp" line="39"/>
+        <location filename="../mainwidget.cpp" line="42"/>
         <source>&amp;Exist</source>
         <translation>&amp;退出</translation>
     </message>
     <message>
-        <location filename="../mainwidget.cpp" line="44"/>
+        <location filename="../mainwidget.cpp" line="47"/>
         <source>&amp;What it is?</source>
         <translation>&amp;这是什么？</translation>
     </message>
     <message>
-        <location filename="../mainwidget.cpp" line="49"/>
+        <location filename="../mainwidget.cpp" line="52"/>
         <source>&amp;About</source>
         <translation>&amp;关于</translation>
     </message>
     <message>
-        <location filename="../mainwidget.cpp" line="51"/>
+        <location filename="../mainwidget.cpp" line="54"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../mainwidget.cpp" line="51"/>
+        <location filename="../mainwidget.cpp" line="54"/>
+        <source>Certificate Viewer 
+     %1</source>
+        <translation>证书查看器
+ %1</translation>
+    </message>
+    <message>
+        <source>Certificate Viewer 
+     V1.0.0.0</source>
+        <translation type="vanished">证书查看器
+ V1.0.0.0</translation>
+    </message>
+    <message>
         <source>Certificate Viewer V1.0.0.0</source>
-        <translation>证书查看器 V1.0.0.0</translation>
+        <translation type="vanished">证书查看器 V1.0.0.0</translation>
     </message>
     <message>
         <source>Certificate Viewer 1.0.0.0</source>
         <translation type="vanished">证书查看器 1.0.0.0</translation>
     </message>
     <message>
-        <location filename="../mainwidget.cpp" line="58"/>
+        <location filename="../mainwidget.cpp" line="61"/>
         <source>General Info(G)</source>
         <translation>基本信息（G）</translation>
     </message>
     <message>
-        <location filename="../mainwidget.cpp" line="61"/>
+        <location filename="../mainwidget.cpp" line="64"/>
         <source>Detail Info(D)</source>
         <translation>详细信息（D）</translation>
     </message>
     <message>
-        <location filename="../mainwidget.cpp" line="156"/>
+        <location filename="../mainwidget.cpp" line="159"/>
         <source>Open File</source>
         <translation>打开文件</translation>
     </message>
     <message>
-        <location filename="../mainwidget.cpp" line="156"/>
+        <location filename="../mainwidget.cpp" line="159"/>
         <source>Cert Files (*.cer *.crt *.pem)</source>
         <translation>证书 (*.cer *.crt *.pem)</translation>
     </message>

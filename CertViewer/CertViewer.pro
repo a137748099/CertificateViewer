@@ -21,6 +21,7 @@ SOURCES += \
     main.cpp \
     mainwidget.cpp \
     tool/httpgetmanager.cpp \
+    tool/logger.cpp \
     tree/treeitem.cpp \
     tree/treemodel.cpp
 
@@ -29,6 +30,7 @@ HEADERS += \
     generalwidget.h \
     mainwidget.h \
     tool/httpgetmanager.h \
+    tool/logger.h \
     tree/treeitem.h \
     tree/treemodel.h \
     x509certificate.h
@@ -46,6 +48,10 @@ CONFIG(release, debug|release) {
 
 unix {
     LIBS += -lssl
+}
+
+win32 {
+    RC_FILE = application.rc
 }
 
 # Default rules for deployment.
