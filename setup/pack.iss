@@ -48,7 +48,7 @@ Source: "./CertViewer/bearer/*";  DestDir: "{app}\bearer";
 Source: "./CertViewer/imageformats/*";  DestDir: "{app}\imageformats";
 Source: "./CertViewer/platforms/*";  DestDir: "{app}\platforms";
 Source: "./CertViewer/translations/*";  DestDir: "{app}\translations";
-Source: "./KeyTool/styles/*";  DestDir: "{app}\styles";
+Source: "./CertViewer/styles/*";  DestDir: "{app}\styles";
 
 [Registry]
 Root: HKA; Subkey: "Software\Classes\{#MyAppAssocExt}\OpenWithProgids"; ValueType: string; ValueName: "{#MyAppAssocKey}"; ValueData: ""; Flags: uninsdeletevalue
